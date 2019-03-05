@@ -1,0 +1,15 @@
+{
+  "name": "socket8",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "http-server -o | node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^0.11.1",
+    "websocket": "^1.0.28"
+  }
+}

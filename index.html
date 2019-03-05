@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+<script type="text/javascript" src="socket8.js"></script>
+</head>
+<body>
+
+<input type="text" id="text" value="hello"/>
+<input type="button" id="button" value="Send"/>
+
+<div><span id="reply"></span></div>
+
+<script>
+ sock = new Socket8('ws://' + location.hostname + ':8081', ['echo-protocol']);
+ sock.onopen(() => console.info('Connected.'));
+ sock.onclose(() => console.info('Closed.'));
+ sock.onerror(() => console.info('Error.'));
+ sock.onmessage(e => {
+   document.getElementById("reply").textContent = e.data;
+ });
+ 
+ document.addEventListener('DOMContentLoaded', function (e) {
+   document.getElementById('button').addEventListener('click', function (e) {
+     sock.send(document.getElementById('text').value);
+   });
+ });
+</script>
+</body>
+</html>
