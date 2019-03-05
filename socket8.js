@@ -1,3 +1,9 @@
+/**
+* socket8-js
+* (c) 2019 rxnew
+* @license MIT
+*/
+
 var Socket8 = function (url, protocol) {
   this.url = url;
   this.protocol = protocol;
