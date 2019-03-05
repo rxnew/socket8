@@ -15,7 +15,7 @@ Socket8.prototype.onopen = function (listener) {
   this._sock.onopen = () => {
     this._onopen();
     while (this._queue.length > 0) {
-      this._sock.send(this._queue.pop());
+      this._sock.send(this._queue.shift());
     }
     this._errors = 0;
   };
